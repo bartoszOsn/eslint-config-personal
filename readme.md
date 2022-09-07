@@ -38,9 +38,15 @@ Try to not setup it so it doesn't need type when function is immidiately assigne
 
 ### no-non-null-assertion ?
 
-### prefer-ts-expect-error !
+Omitted by now, because:
+ - Does this rule prohibits something that I believe shouldn't be done? **YES**
+ - Does this rule prohibits something that I do often? **NO**
+ - Is it probable that only time I do it is intentional, because of some cornercase? **YES**
+ - **Do not include this rule**
 
-Maybe?
+### prefer-ts-expect-error
+
+As a warning for now. I believe I never had to use `@ts-ignore`, so it's possible that this rule is completely redundant, but it might prevent some serious bugs.
 
 ## References
 
@@ -62,6 +68,8 @@ Do I have a lot of cases like that to waste time on thinking of that?
 
 ### find rule – https://github.com/airbnb/javascript#objects--grouped-shorthand
 
+Ignored for now.
+
 ### quote-props
 
 Do I want it to allow qouting only invalid identifiers, or all?
@@ -69,6 +77,8 @@ Do I want it to allow qouting only invalid identifiers, or all?
 I prefer to qoute all identifiers if there is at least one invalid identifier in the object, so all identifiers looks the same.
 
 ### prefer-object-spread
+
+Ignored for now.
 
 ### object-curly-newline
 
@@ -78,7 +88,7 @@ I prefer to qoute all identifiers if there is at least one invalid identifier in
 
 ### find rule – https://github.com/airbnb/javascript#arrays--bracket-newline
 
-In theory eslint isn't for formatting purposes, but if it works. it works 🤷‍
+Ignored by now.
 
 ## Strings
 
@@ -87,6 +97,27 @@ In theory eslint isn't for formatting purposes, but if it works. it works 🤷�
 Use single qoutes whenever possible. Template literals must contain interpolation or new lines.
 
 ### prefer-template
+
+For now warn.
+I can see a case where I would prefer to use "+", mainly in situations when my perception of current action is not "I'm creating new string from existing other strings", but "I modify existing string"
+
+So, for example:
+```typescript
+const domain = 'example.com';
+const path = '/asd/asd';
+    
+const fullPath = `${domain}${path}`
+```
+
+But:
+```typescript
+const pathSegments = ['https://', 'example.com', '/asd/asd']
+let path = '';
+
+for (const segment of pathSegments) {
+    path = path + segment;
+}
+```
 
 ## Functions
 
@@ -100,15 +131,15 @@ Use single qoutes whenever possible. Template literals must contain interpolatio
 
 ### function-paren-newline
 
-multiline
-
 ### prefer-arrow-callback
 
 ### arrow-parens
 
-## Modules
+Do I really need it? Is argument without parentheses really bad?
 
-### import/no-unassigned-import
+Ignored for now.
+
+## Modules
 
 ### import/order
 
