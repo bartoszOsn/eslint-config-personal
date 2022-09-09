@@ -25,7 +25,7 @@ module.exports = {
         "no-new-object": 'error',
         "object-shorthand": ['error', 'always'],
         "quote-props": ['error', 'consistent-as-needed'],
-        "object-curly-newline": ['error', 'consistent'],
+        "object-curly-newline": ['error', 'always'],
         "object-curly-spacing": ['error', 'always'],
         "quotes": ['error', 'single'],
         "prefer-template": 'warn',
