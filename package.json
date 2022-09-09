@@ -1,6 +1,6 @@
 {
   "name": "@bartoszosn/eslint-config-personal",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Eslint config used in my personal projects",
   "main": "index.js",
   "author": "Bartosz Osiński",

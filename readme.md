@@ -1,5 +1,25 @@
 # My personal Eslint config
 
+££ Installation
+
+Add this line to `package.json`:
+```javascript
+    "@bartoszosn/eslint-config-personal": "https://github.com/bartoszOsn/eslint-config-personal.git"
+```
+
+then run:
+
+```shell
+yarn install
+```
+
+Then add this to your .eslintrc.json:
+```json
+      "extends": ["@bartoszosn/personal"],
+```
+
+If you already have this section, add `"@bartoszosn/personal"` at the end of the array.
+
 ## Summary
 
 It is a little bit inspired by Airbnb style guide. I ommited rules that I usually not break, because if I break it, I surely means that it is intentional.
