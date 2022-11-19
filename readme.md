@@ -1,6 +1,6 @@
 # My personal Eslint config
 
-££ Installation
+## Installation
 
 Add this line to `package.json`:
 ```javascript
