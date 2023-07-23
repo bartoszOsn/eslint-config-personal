@@ -4,7 +4,7 @@
 
 Add this line to `package.json`:
 ```javascript
-    "@bartoszosn/eslint-config-personal": "https://github.com/bartoszOsn/eslint-config-personal.git"
+    "@bartoszosn/eslint-config-personal": "https://github.com/bartoszOsn/eslint-config-personal.git#v0.0.1"
 ```
 
 then run:
