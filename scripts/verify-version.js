@@ -1,26 +1,25 @@
+const { readReadme, writeReadme, getReadme } = require('./util/templates');
+const { getPackageJsonVersion, getGitVersion, versionsEqual } = require('./util');
+
 async function main() {
-	const { execSync } = require('node:child_process');
-	const { version } = require('../package.json');
-	const packageJsonVersion = version.split('.')
-		.map(num => parseInt(num));
 
-	const gitVersion = execSync('git describe --tags --match v* --abbrev=0')
-		.toString()
-		.trim()
-		.slice(1)
-		.split('.')
-		.map(num => parseInt(num));
+	const packageJsonVersion = getPackageJsonVersion();
 
-	if (packageJsonVersion[0] !== gitVersion[0]) {
-		throw new Error('Major version mismatch between package.json and git tags');
+	const gitVersion = getGitVersion();
+
+	if (!versionsEqual(packageJsonVersion, gitVersion)) {
+		throw new Error(
+			`Package.json version is not matching latest tag. package.json: ${packageJsonVersion.join('.')}, tag: ${gitVersion.join('.')}.`
+		)
 	}
 
-	if (packageJsonVersion[1] !== gitVersion[1]) {
-		throw new Error('Minor version mismatch between package.json and git tags');
-	}
+	const readme = await getReadme(packageJsonVersion);
+	const currentReadme = await readReadme();
 
-	if (packageJsonVersion[2] !== gitVersion[2]) {
-		throw new Error('Patch version mismatch between package.json and git tags');
+	if (readme !== currentReadme) {
+		throw new Error(
+			`Readme is not up to date.`
+		)
 	}
 }
 
