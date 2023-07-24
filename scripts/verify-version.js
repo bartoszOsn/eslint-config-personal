@@ -8,18 +8,20 @@ async function main() {
 	const gitVersion = getGitVersion();
 
 	if (!versionsEqual(packageJsonVersion, gitVersion)) {
-		throw new Error(
+		console.error(
 			`Package.json version is not matching latest tag. package.json: ${packageJsonVersion.join('.')}, tag: ${gitVersion.join('.')}.`
-		)
+		);
+		process.exit(1);
 	}
 
 	const readme = await getReadme(packageJsonVersion);
 	const currentReadme = await readReadme();
 
 	if (readme !== currentReadme) {
-		throw new Error(
+		console.error(
 			`Readme is not up to date.`
-		)
+		);
+		process.exit(1);
 	}
 }
 
