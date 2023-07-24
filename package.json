@@ -2,7 +2,6 @@
 	"name": "@bartoszosn/eslint-config-personal",
 	"version": "0.0.1",
 	"description": "Eslint config used in my personal projects",
-	"main": "index.js",
 	"author": "Bartosz Osiński",
 	"license": "MIT",
 	"private": false,
