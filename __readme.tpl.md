@@ -15,7 +15,7 @@ yarn install
 
 Then add this to your .eslintrc.json:
 ```json
-      "extends": ["@bartoszosn/personal"],
+      "extends": ["@bartoszosn/personal/core"],
 ```
 
 If you already have this section, add `"@bartoszosn/personal"` at the end of the array.
