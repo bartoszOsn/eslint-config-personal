@@ -42,7 +42,7 @@ module.exports = {
         '@typescript-eslint/indent': ['error', 'tab'],
         '@typescript-eslint/space-infix-ops': 'error',
         'eol-last': ["error", "always"],
-        'max-len': 'error',
+		'max-len': ['error', {'code': 160}],
         'no-trailing-spaces': 'error'
     }
 }
