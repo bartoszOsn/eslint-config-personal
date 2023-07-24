@@ -1,6 +1,6 @@
 {
 	"name": "@bartoszosn/eslint-config-personal",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Eslint config used in my personal projects",
 	"author": "Bartosz Osiński",
 	"license": "MIT",
