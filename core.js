@@ -13,7 +13,7 @@ module.exports = {
             {
                 allowExpressions: true,
                 allowTypedFunctionExpressions: true,
-                allowHigherOrderFunctions: false // ?
+                allowHigherOrderFunctions: true
             }
         ],
         "@typescript-eslint/member-delimiter-style": 'error',
