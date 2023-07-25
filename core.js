@@ -1,3 +1,10 @@
+const explicitFunctionReturnTypeAllowedNamesRegex = [
+	'^use.*'
+];
+explicitFunctionReturnTypeAllowedNamesRegex.includes = function(funcName) {
+	return this.some(name => funcName.match(name));
+}
+
 module.exports = {
     parser: "@typescript-eslint/parser",
     plugins: ["@typescript-eslint", "import"],
@@ -14,7 +21,8 @@ module.exports = {
                 allowExpressions: true,
                 allowTypedFunctionExpressions: true,
                 allowHigherOrderFunctions: true,
-				allowDirectConstAssertionInArrowFunctions: true
+				allowDirectConstAssertionInArrowFunctions: true,
+				allowedNames: explicitFunctionReturnTypeAllowedNamesRegex
             }
         ],
         "@typescript-eslint/member-delimiter-style": 'error',
